@@ -1,0 +1,33 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "commonjs": true,
+        "node": true,
+        "jest": true,
+        "mocha": true
+    },
+    "globals": {
+        "__DEV__": true
+    },
+    "extends": [
+        "wiremore",
+        "wiremore/react",
+        "plugin:react/recommended",
+        "prettier",
+        "prettier/react",
+        "plugin:flowtype/recommended"
+    ],
+    "settings": {
+        "flowtype": {
+            "onlyFilesWithFlowAnnotation": true
+        }
+    },
+    "plugins": ["prettier", "flowtype"],
+    "rules": {
+        "import/named": 0,
+        "import/no-unassigned-import": 0,
+        "import/no-named-as-default-member": 0,
+        "prettier/prettier": "error"
+    }
+}

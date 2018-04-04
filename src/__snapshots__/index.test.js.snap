@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckboxGroup correctly sets "checked" attribute 1`] = `
+Array [
+  <input
+    checked={true}
+    name="test"
+    onChange={[Function]}
+    type="checkbox"
+    value="1"
+  />,
+  <input
+    checked={false}
+    name="test"
+    onChange={[Function]}
+    type="checkbox"
+    value="3"
+  />,
+]
+`;
+
+exports[`CheckboxGroup renders correctly when deeply nested 1`] = `
+<div>
+  <div>
+    <input
+      checked={true}
+      name="test"
+      onChange={[Function]}
+      type="checkbox"
+      value="1"
+    />
+    <input
+      checked={false}
+      name="test"
+      onChange={[Function]}
+      type="checkbox"
+      value="3"
+    />
+  </div>
+</div>
+`;

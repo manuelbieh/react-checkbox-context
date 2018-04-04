@@ -1,0 +1,49 @@
+{
+  "name": "react-checkbox-context",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "cross-env NODE_ENV=production webpack",
+    "lint": "eslint ./src"
+  },
+  "files": [
+    "lib/*",
+    "README",
+    "LICENSE"
+  ],
+  "keywords": [],
+  "author": "Manuel Bieh <node@manuelbieh.de> (https://github.com/manuelbieh)",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-jest": "^22.4.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-config-wiremore": "1.3.1",
+    "eslint-plugin-babel": "4.1.1",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "2.8.0",
+    "eslint-plugin-prettier": "2.4.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-security": "1.4.0",
+    "jest": "^22.4.3",
+    "prettier": "^1.11.1",
+    "react": "^16.3.0",
+    "react-test-renderer": "^16.3.0",
+    "webpack": "^4.4.1",
+    "webpack-cli": "^2.0.13"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0"
+  }
+}
