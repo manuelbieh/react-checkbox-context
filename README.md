@@ -5,6 +5,7 @@ This package was heavily inspired by [react-checkbox-group](https://github.com/z
 Big thank you to [Ziad Saab](https://github.com/ziad-saab) for the inspiration!
 
 ## Installation
+
 ```
 npm install react-checkbox-context
 ```
@@ -37,7 +38,7 @@ import { Checkbox, CheckboxGroup } from 'react-checkbox-context';
   <Checkbox value="kiwi" /> Kiwi
   <Checkbox value="pineapple" /> Pineapple
   <Checkbox value="watermelon" /> Watermelon
-</CheckboxGroup>
+</CheckboxGroup>;
 ```
 
 Since this component uses React's Context API, `<Checkbox>` elements can by anywhere inside of a `<CheckboxGroup>` and **do not** have to be a direct descendant! So this is easily possible **without** having to specify any `checkboxDepth` props or the like:
@@ -63,11 +64,11 @@ Since this component uses React's Context API, `<Checkbox>` elements can by anyw
 
 ### `<CheckboxGroup />`
 
-| Prop  | Type | Description  |
-|-|-|-|
-| `onChange` | `(values: Array<string>, originalEvent: SyntheticEvent<HTMLInputElement>) => void` | Will be called on every time a checkbox changes it's state. |
-| `name` | `string` | Name for all checkboxes within one `<CheckboxGroup>` |
-| `values` | `Array<string>` | Values of the `<Checkbox>` elements marked as `checked` |
+| Prop       | Type                                                                               | Description                                                |
+| ---------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `onChange` | `(values: Array<string>, originalEvent: SyntheticEvent<HTMLInputElement>) => void` | Will be called on every time a checkbox changes its state. |
+| `name`     | `string`                                                                           | Name for all checkboxes within one `<CheckboxGroup>`       |
+| `values`   | `Array<string>`                                                                    | Values of the `<Checkbox>` elements marked as `checked`    |
 
 Status of checkboxes (checked/unchecked) can be controlled from outside by passing new values to `<CheckboxGroup>` (e.g. `<CheckboxGroup values={this.state.checkedItems} />`).
 
@@ -77,7 +78,7 @@ The `Checkbox` component passes all its props the the underlying `<input type="c
 
 ## Todo
 
-- Add more tests, especially with Enzyme to be able to check if `onChange` events are fired correctly.
+*   Add more tests, especially with Enzyme to be able to check if `onChange` events are fired correctly.
 
 ## License
 
