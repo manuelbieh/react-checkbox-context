@@ -1,4 +1,4 @@
-# react-checkbox-context
+# ⚛ React Checkbox Context
 
 This package was heavily inspired by [react-checkbox-group](https://github.com/ziad-saab/react-checkbox-group) after it stopped working the way I used it. `<Checkbox />` elements suddenly had to be direct children of `<CheckboxGroup>` (which was impossible for my use case) or the `CheckboxGroup` explicitly needed to have a `checkboxDepth` prop (which was not flexible enough for me). So I decided to write my own `<CheckboxGroup>` component based on React's new [Context API](https://reactjs.org/docs/context.html).
 
