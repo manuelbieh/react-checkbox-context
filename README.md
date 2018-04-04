@@ -73,7 +73,7 @@ Status of checkboxes (checked/unchecked) can be controlled from outside by passi
 
 ### `<Checkbox />`
 
-The `Checkbox` component passes all its props the the underlying `<input type="checkbox" />` element. All valid HTML attributes can be used with the exception of `checked`, `name`, `onChange` as they will be set by the parent `<CheckboxGroup>` component.
+The `Checkbox` component passes all of its props the the underlying `<input type="checkbox" />` element. All valid HTML attributes can be used with the exception of `checked`, `name`, `onChange` as they will be set by the parent `<CheckboxGroup>` component.
 
 ## Todo
 
