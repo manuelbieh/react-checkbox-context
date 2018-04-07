@@ -18,28 +18,42 @@ type CheckboxGroupStateT = {
 
 export default class CheckboxGroup extends React.Component<
     CheckboxGroupPropsT,
-    CheckboxGroupStateT,
+    CheckboxGroupStateT
 > {
     static getDerivedStateFromProps(nextProps: CheckboxGroupPropsT) {
         if (!nextProps.values) {
-            return [];
+            return {
+                values: [],
+                name: nextProps.name,
+            };
         }
 
         if (Array.isArray(nextProps.values)) {
             return {
                 values: nextProps.values.map((value) => value.toString()),
+                name: nextProps.name,
             };
         }
 
         if (typeof nextProps.values === 'string') {
             return {
                 values: [nextProps.values],
+                name: nextProps.name,
             };
         }
     }
 
+    constructor(props, state) {
+        super(props, state);
+        this.state = {
+            ...this.state,
+            onChange: this.onChange,
+        };
+    }
+
     state = {
         values: [],
+        name: this.props.name,
     };
 
     removeValue = (value: string, originalEvent: SyntheticEvent<HTMLInputElement>) => {
@@ -59,7 +73,7 @@ export default class CheckboxGroup extends React.Component<
                 if (typeof this.props.onChange === 'function') {
                     this.props.onChange(this.state.values, originalEvent);
                 }
-            },
+            }
         );
     };
 
@@ -77,14 +91,13 @@ export default class CheckboxGroup extends React.Component<
                 if (typeof this.props.onChange === 'function') {
                     this.props.onChange(this.state.values, originalEvent);
                 }
-            },
+            }
         );
     };
 
     onChange = (e: SyntheticEvent<HTMLInputElement>) => {
         e.persist();
         const { currentTarget: { value, checked } } = e;
-
         if (checked) {
             this.addValue(value, e);
         } else {
@@ -94,13 +107,7 @@ export default class CheckboxGroup extends React.Component<
 
     render() {
         return (
-            <CheckboxContext.Provider
-                value={{
-                    name: this.props.name,
-                    values: this.state.values,
-                    onChange: this.onChange,
-                }}
-            >
+            <CheckboxContext.Provider value={this.state}>
                 {this.props.children}
             </CheckboxContext.Provider>
         );
