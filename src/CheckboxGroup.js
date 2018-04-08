@@ -13,6 +13,8 @@ type CheckboxGroupPropsT = {
 };
 
 type CheckboxGroupStateT = {
+    name?: string,
+    onChange?: (e: SyntheticEvent<HTMLInputElement>, values: Array<string>) => void,
     values: string[],
 };
 
@@ -43,7 +45,7 @@ export default class CheckboxGroup extends React.Component<
         }
     }
 
-    constructor(props, state) {
+    constructor(props: CheckboxGroupPropsT, state: CheckboxGroupStateT) {
         super(props, state);
         this.state = {
             ...this.state,
@@ -55,6 +57,13 @@ export default class CheckboxGroup extends React.Component<
         values: [],
         name: this.props.name,
     };
+
+    shouldComponentUpdate(nextProps: CheckboxGroupPropsT, nextState: CheckboxGroupStateT) {
+        if (this.props !== nextProps || this.state !== nextState) {
+            return true;
+        }
+        return false;
+    }
 
     removeValue = (value: string, originalEvent: SyntheticEvent<HTMLInputElement>) => {
         this.setState(
