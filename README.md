@@ -34,7 +34,7 @@ Repetitive, hard to manipulate and easily desynchronized. Lift up name and onCha
 ```js
 import { Checkbox, CheckboxGroup } from 'react-checkbox-context';
 
-<CheckboxGroup name="fruits" values={['kiwi', 'pineapple']} onChange={this.fruitsChanged}>
+<CheckboxGroup name="fruits" values={['kiwi', 'pineapple']}>
   <Checkbox value="kiwi" /> Kiwi
   <Checkbox value="pineapple" /> Pineapple
   <Checkbox value="watermelon" /> Watermelon
@@ -44,7 +44,7 @@ import { Checkbox, CheckboxGroup } from 'react-checkbox-context';
 Since this component uses React's Context API, `<Checkbox>` elements can by anywhere inside of a `<CheckboxGroup>` and **do not** have to be a direct descendant! So this is easily possible **without** having to specify any `checkboxDepth` props or the like:
 
 ```js
-<CheckboxGroup name="frameworks" onChange={(selectedValues) => { console.log(selectedValues); }}>
+<CheckboxGroup name="frameworks" onChange={(event, selectedValues) => { console.log(selectedValues); }}>
   <p>
     <label htmlFor="react">
       <Checkbox value="react" id="react" /> React
