@@ -66,7 +66,7 @@ Since this component uses React's Context API, `<Checkbox>` elements can by anyw
 
 | Prop       | Type                                                                               | Description                                                |
 | ---------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| `onChange` | `(values: Array<string>, originalEvent: SyntheticEvent<HTMLInputElement>) => void` | Will be called on every time a checkbox changes its state. |
+| `onChange` | `(originalEvent: SyntheticEvent<HTMLInputElement>, values: Array<string>) => void` | Will be called on every time a checkbox changes its state. |
 | `name`     | `string`                                                                           | Name for all checkboxes within one `<CheckboxGroup>`       |
 | `values`   | `Array<string>`                                                                    | Values of the `<Checkbox>` elements marked as `checked`    |
 
