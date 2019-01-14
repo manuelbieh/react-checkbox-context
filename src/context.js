@@ -1,5 +1,8 @@
 import React from 'react';
 
-const CheckboxContext = React.createContext();
+const Context = React.createContext();
 
-export default CheckboxContext;
+export const Consumer = Context.Consumer;
+export const Provider = Context.Provider;
+
+export default Context;

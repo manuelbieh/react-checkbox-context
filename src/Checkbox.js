@@ -1,16 +1,16 @@
 // @flow
 import React from 'react';
-import CheckboxContext from './context';
+import { Consumer } from './context';
 
 type CheckboxT = {
-    value: string | number,
+    value?: string,
 };
 
 export default class Checkbox extends React.Component<CheckboxT> {
     render() {
-        const { value, ...rest } = this.props;
+        const { value = 'on', ...rest } = this.props;
         return (
-            <CheckboxContext.Consumer>
+            <Consumer>
                 {({ name, values, onChange }) => (
                     <input
                         {...rest}
@@ -21,7 +21,7 @@ export default class Checkbox extends React.Component<CheckboxT> {
                         onChange={onChange}
                     />
                 )}
-            </CheckboxContext.Consumer>
+            </Consumer>
         );
     }
 }
