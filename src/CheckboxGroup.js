@@ -9,16 +9,11 @@ type CheckboxGroupPropsT = {
     values?: string[],
 };
 
-type CheckboxGroupStateT = {
-    values: string[],
-};
-
-export default class CheckboxGroup extends React.Component<
-    CheckboxGroupPropsT,
-    CheckboxGroupStateT
-> {
-    state = {
-        values: Array.isArray(this.props.values) ? this.props.values : [],
+export default class CheckboxGroup extends React.Component<CheckboxGroupPropsT> {
+    static defaultProps = {
+        name: undefined,
+        values: [],
+        onChange: () => {},
     };
 
     onChange = (e: SyntheticInputEvent<HTMLInputElement>) => {
@@ -26,53 +21,34 @@ export default class CheckboxGroup extends React.Component<
         const {
             currentTarget: { value, checked },
         } = e;
+        const { onChange } = this.props;
 
+        let newValues;
         if (checked) {
-            this.addValue(e, value);
+            newValues = this.addValue(value);
         } else {
-            this.removeValue(e, value);
+            newValues = this.removeValue(value);
         }
+
+        onChange(e, newValues);
     };
 
-    customOnChangeHandler = (
-        originalEvent: SyntheticInputEvent<HTMLInputElement>,
-        values: string[]
-    ) => {
-        if (typeof this.props.onChange === 'function') {
-            this.props.onChange(originalEvent, values);
-        }
+    removeValue = (value: string) => {
+        const { values } = this.props;
+        return values.filter((item) => item !== value);
     };
 
-    removeValue = (originalEvent: SyntheticInputEvent<HTMLInputElement>, value: string) => {
-        this.setState(
-            ({ values }) => ({
-                values: values.includes(value)
-                    ? values.slice().filter((item) => item !== value)
-                    : values,
-            }),
-            () => {
-                this.customOnChangeHandler(originalEvent, this.state.values);
-            }
-        );
-    };
-
-    addValue = (originalEvent: SyntheticInputEvent<HTMLInputElement>, value: string) => {
-        this.setState(
-            ({ values }) => ({
-                values: values.indexOf(value) === -1 ? values.slice().concat(value) : values,
-            }),
-            () => {
-                this.customOnChangeHandler(originalEvent, this.state.values);
-            }
-        );
+    addValue = (value: string) => {
+        const { values } = this.props;
+        return values.concat(value);
     };
 
     render() {
-        const { children, name } = this.props;
+        const { children, name, values } = this.props;
 
         const contextValue = {
             onChange: this.onChange,
-            values: this.state.values,
+            values,
             name,
         };
 
