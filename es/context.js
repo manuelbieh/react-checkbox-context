@@ -1,1 +1,0 @@
-import React from'react';var Context=React.createContext();export var Consumer=Context.Consumer;export var Provider=Context.Provider;export default Context;

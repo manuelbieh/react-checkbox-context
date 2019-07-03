@@ -7,12 +7,12 @@ describe('CheckboxGroup', () => {
         expect(
             renderer
                 .create(
-                    <CheckboxGroup name="test" values={['1', '2']}>
+                    <CheckboxGroup name="test" initialValues={['1', '2']}>
                         <Checkbox value="1" />
                         <Checkbox value="3" />
-                    </CheckboxGroup>,
+                    </CheckboxGroup>
                 )
-                .toJSON(),
+                .toJSON()
         ).toMatchSnapshot();
     });
 
@@ -20,16 +20,16 @@ describe('CheckboxGroup', () => {
         expect(
             renderer
                 .create(
-                    <CheckboxGroup name="test" values={['1', '2']}>
+                    <CheckboxGroup name="test" initialValues={['1', '2']}>
                         <div>
                             <div>
                                 <Checkbox value="1" />
                                 <Checkbox value="3" />
                             </div>
                         </div>
-                    </CheckboxGroup>,
+                    </CheckboxGroup>
                 )
-                .toJSON(),
+                .toJSON()
         ).toMatchSnapshot();
     });
 });
